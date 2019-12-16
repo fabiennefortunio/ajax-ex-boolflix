@@ -1,18 +1,16 @@
 $(document).ready(function() {
 
-    // salvo la mia Api
 
     //Aggiungo il Handlebars tempate che mi serve per raccogliere i dati
     var template = Handlebars.compile("template_film");
 
-
+    //keypress
     $('.search_movie').keypress(function() {
-        if(keycode == 13);
+        if('keycode' == 13);
 });
 
-    //AJAX SECTION
-
-    var results = $('#template_film').append(function(){
+    //append
+    $('#template-film').append(function(){
 
     });
 
@@ -51,6 +49,7 @@ $(document).ready(function() {
 
 
 // come incollare sul html tramite handlebars i results
-//keypress per fare una ricerca con Enter 
+//keypress per fare una ricerca con Enter
+
 
 });
