@@ -5,12 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
         <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="script.js"></script>
         <title></title>
     </head>
     <body>
-        <div class="film_container">
 
             <header>
                 <div class="nav top">
@@ -25,11 +25,18 @@
 
             </header>
 
+            <div class="container"></div>
+
+            <div class="stars">
+                <i class="fas fa-star" type="full star"></i>
+                <i class="far fa-star" type="empty star"></i>
+            </div>
+
 
             <script id="template_film" type="text/x-handlebars-template">
            <div class="film">
                <ul>
-                   <li>Film: {{film}}</li>
+                   <li>Film: {{number}}</li>
                    <li>Title: {{title}}</li>
                    <li>Original title: {{original_title}}</li>
                    <li>Language: {{language}}</li>

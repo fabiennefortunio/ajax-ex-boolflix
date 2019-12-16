@@ -2,24 +2,27 @@ $(document).ready(function() {
 
 
     //Aggiungo il Handlebars tempate che mi serve per raccogliere i dati
-    var template = Handlebars.compile("template_film");
 
-    //keypress
-    $('.search_movie').keypress(function() {
-        if('keycode' == 13);
-});
 
-    //append
-    $('#template-film').append(function(){
+//keypress
+    $( ".search_movie" ).keypress(function() {
+        if(event.which == '13'){
+            api_search();
+        }
 
     });
+//append
+
 
     $('#search_button').click(function(){
         api_search();
     });
-    var api_search = function() {
+        var api_search = function() {
+        var template_html = $('#template_film').html();
+        var template_function = Handlebars.compile(template_html);
         var search_movie = $('.search_movie').val();
         var api_url = 'https://api.themoviedb.org/3';
+//AJAX SECTION
         $.ajax({
             'url': api_url + '/search/movie',
             'data': {
@@ -38,6 +41,15 @@ $(document).ready(function() {
                     var original_title = film.original_title
                     var language = film.language
                     var vote = vote.film
+                    var dati = {
+                        number : i + 1,
+                        title : title,
+                        original_title : original_title,
+                        language : language,
+                        vote : vote
+                    }
+                    var html = template_function(dati);
+                    $('.container').append(html);
                 }
             },
             'error': function() {
@@ -47,9 +59,6 @@ $(document).ready(function() {
 
     }
 
-
-// come incollare sul html tramite handlebars i results
-//keypress per fare una ricerca con Enter
 
 
 });
