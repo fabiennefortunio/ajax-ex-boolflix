@@ -4,20 +4,40 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="main.js"></script>
+        <script src="script.js"></script>
         <title></title>
     </head>
     <body>
-        <div class="container">
+        <div class="film_container">
 
             <header>
                 <div class="nav top">
-                    <div class="nav left"></div>
-                    <div class="nav right"></div>
+                    <div class="nav left">BOOLFIX</div>
+                    <div class="nav right">
+
+                        <input class="cerca_film" type="search" value="Search"></input>
+                        <button type="button" name="search" value="Search"</button>
+                    </div>
+
                 </div>
 
             </header>
+
+
+            <script id="template_film" type="text/x-handlebars-template">
+           <div class="film">
+               <ul>
+                   <li>Film {{film}}</li>
+                   <li>Title: {{title}}</li>
+                   <li>Original title: {{original_title}}</li>
+                   <li>Language: {{language}}</li>
+                   <li>Vote:  {{vote}}</li>
+               </ul>
+           </div>
+       </script>
+
         </div>
 
     </body>
