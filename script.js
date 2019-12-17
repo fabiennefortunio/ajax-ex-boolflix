@@ -63,61 +63,60 @@ $(document).ready(function() {
 //     aggiungiamo le bandiere alla stringa Language
 //     nuova chiamata AJAX per la ricerca serie TV
         //
-        // $.ajax({
-        //     'url': api_url + '/search/tv',
-        //     'data': {
-        //         'api_key': '5f9e408b31b5eab1cd8a1f5bf65e5ae3',
-        //         'query': search_tv,
-        //         'language': 'en-EN'
-        //     },
-        //     'method': 'GET',
-        //     'success': function(data_response) {
-        //         console.log(data_response);
-        //         var serie = data_response.results;
-        //         for (var i = 0; i < serie.length; i++) {
-        //             var current_serie = serie[i];
-        //             var title = current_serie.title;
-        //             console.log(current_serie);
-        //             var original_title = current_serie.original_title
-        //             var language = current_serie.original_language
-        //             var vote = current_serie.vote_average
-        //             var dati = {
-        //                 name : name,
-        //                 original_name : original_name,
-        //                 original_language : original_language,
-        //                 vote_average : Math.round(vote) / 2
-        //                     // MILESTONE 2 - AGGIUNGIAMO LE STELLINE AL RATING
-        //
-        //                          var stelline = dati.vote
-        //                          for(i = 0; i < stelline.length i++) {
-        //
-        //                             if (stelline[i] == 0) {
-        //                                 $('.far').show(html); {
-        //                             }
-        //                             if (stelline[i] == 1 ) {
-        //                                 $('.fas').show(html);
-        //                             }
-        //                             if (stelline[i] == 2 ) {
-        //                                 $('.fas').show(html);
-        //                             }
-        //                             if (stelline[i] == 3 ) {
-        //                                 $('.fas').show(html);
-        //                             }
-        //                             if (stelline[i] == 4  ) {
-        //                                 $('.fas').show(html) * 4;
-        //                             }
-        //                             if (stelline[i] == 5 ) {
-        //                                 $('.fas').show(html) * 5;
-        //                             }
-        //             }
-        //             var html = template_function(dati);
-        //             $('.container').append(html);
-        //         }
-        //     },
-        //     'error': function() {
-        //         alert('error');
-        //     }
-        // });
+        $.ajax({
+            'url': api_url + '/search/tv',
+            'data': {
+                'api_key': '5f9e408b31b5eab1cd8a1f5bf65e5ae3',
+                'query': search_tv,
+                'language': 'en-EN'
+            },
+            'method': 'GET',
+            'success': function(data_response) {
+                console.log(data_response);
+                var serie = data_response.results;
+                for (var i = 0; i < serie.length; i++) {
+                    var current_serie = serie[i];
+                    var title = current_serie.title;
+                    console.log(current_serie);
+                    var original_title = current_serie.original_title
+                    var language = current_serie.original_language
+                    var vote = current_serie.vote_average
+                    var dati = {
+                        name : name,
+                        original_name : original_name,
+                        original_language : original_language,
+                        vote_average : Math.round(vote) / 2
+                            // MILESTONE 2 - AGGIUNGO LE STELLINE AL RATING
+
+                                 for(i = 0; i < stelline.length i++) {
+                                    var stelline = dati.vote
+                                    if (stelline[i] == 0) {
+                                        $('.far').show(html); {
+                                    }
+                                    if (stelline[i] == 1 ) {
+                                        $('.fas').show(html) * 1;
+                                    }
+                                    if (stelline[i] == 2 ) {
+                                        $('.fas').show(html) * 2;
+                                    }
+                                    if (stelline[i] == 3 ) {
+                                        $('.fas').show(html) * 3;
+                                    }
+                                    if (stelline[i] == 4  ) {
+                                        $('.fas').show(html) * 4;
+                                    }
+                                    if (stelline[i] == 5 ) {
+                                        $('.fas').show(html) * 5;
+                                    }
+                    }
+                    var html = template_function(dati);
+                    $('.container').append(html);
+                }
+            },
+            'error': function() {
+                alert('error');
+            }
+        });
 
 
         // BANDIERE API
@@ -125,8 +124,6 @@ $(document).ready(function() {
         // API ITALY: https://public-us.opendatasoft.com/api/records/1.0/search/?dataset=country-flags&q=italy&facet=country&refine.country=Italy
         // API USA: https://public-us.opendatasoft.com/api/records/1.0/search/?dataset=country-flags&q=usa&facet=country&refine.country=United+States
         // API FRANCE: https://public-us.opendatasoft.com/api/records/1.0/search/?dataset=country-flags&q=france&facet=country&refine.country=France
-
-
 
 
 });
