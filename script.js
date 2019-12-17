@@ -45,8 +45,8 @@ $(document).ready(function() {
                         number : i + 1,
                         title : title,
                         original_title : original_title,
-                        language : language,
-                        vote : vote
+                        language : original_language,
+                        vote : vote_average;
                     }
                     var html = template_function(dati);
                     $('.container').append(html);
