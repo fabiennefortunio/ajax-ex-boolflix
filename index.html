@@ -32,7 +32,7 @@
                 <i class="far fa-star" type="empty star"></i>
             </div>
 
-
+        <!-- TEMPLATE MOVIES -->
             <script id="template_film" type="text/x-handlebars-template">
            <div class="film">
                <ul>
@@ -44,6 +44,19 @@
                </ul>
            </div>
        </script>
+
+       <!-- TEMPLATE SERIES TV SHOW -->
+       
+           <script id="template_serie" type="text/x-handlebars-template">
+          <div class="serie">
+              <ul>
+                  <li>Name: {{name}}</li>
+                  <li>Original name: {{original_name}}</li>
+                  <li>Original language: {{original_language}}</li>
+                  <li>Vote_average:  {{{ vote_average }}}</li>
+              </ul>
+          </div>
+      </script>
 
         </div>
 
