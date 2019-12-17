@@ -64,20 +64,20 @@ $(document).ready(function() {
 
         var vote_average = voto_convertito;
         for ( voto_convertito = 0; voto_convertito < 10; voto_convertito ++ )
-        if ( voto_convertito == 2 ) {
-            return : 1
-        };
-        if ( voto_convertito == 4 ) {
-            return : 2
-        };
-        if ( voto_convertito == 6 ) {
-            return : 3
-        };
-        if ( voto_convertito == 8 ) {
-            return : 4
-        };
-        if ( voto_convertito == 10 ) {
-            return : 5
-        };
+            if ( voto_convertito == 2 ) {
+                return : 1
+            };
+            if ( voto_convertito == 4 ) {
+                return : 2
+            };
+            if ( voto_convertito == 6 ) {
+                return : 3
+            };
+            if ( voto_convertito == 8 ) {
+                return : 4
+            };
+            if ( voto_convertito == 10 ) {
+                return : 5
+            };
 
 });
