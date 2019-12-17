@@ -38,16 +38,16 @@ $(document).ready(function() {
                     var current_film = film[i];
                     var title = film_corrente.title;
                     console.log(title);
-                    var original_title = film.original_title
-                    var language = film.language
-                    var vote = vote.film
+                    var original_title = film.original_title;
+                    var language = film.language;
+                    var vote = vote.vote_average;
                     var dati = {
                         number : i + 1,
                         title : title,
                         original_title : original_title,
                         language : original_language,
-                        vote : vote_average;
-                    }
+                        rating : vote_average;
+                    };
                     var html = template_function(dati);
                     $('.container').append(html);
                 }
@@ -58,7 +58,7 @@ $(document).ready(function() {
         });
 
     }
-
+// MILESTONE 2 
 
 
 });
