@@ -7,20 +7,21 @@ $(document).ready(function() {
 //keypress
     $( "#search_movie" ).keypress(function() {
         if(event.which == '13'){
-            api_search();
+            api_search_movie();
         }
 
     });
     //$('.container').empty();
-    $('#search_button').click(function(){
-        api_search();
-    });
-        var api_search = function() {
+    $('#search_movie').on('click',function(event){
+        api_search_movie();
+});
+        var api_search_movie = function() {
         var template_html = $('#template_film').html();
         var template_function = Handlebars.compile(template_html);
         var search_movie = $('#search_movie').val();
         var api_url = 'https://api.themoviedb.org/3';
-// MILESTONE 1 AJAX SECTION
+
+//AJAX SECTION
         $.ajax({
             'url': api_url + '/search/movie',
             'data': {
@@ -39,11 +40,14 @@ $(document).ready(function() {
                     var original_title = current_film.original_title
                     var language = current_film.original_language
                     var vote = current_film.vote_average
+                    var poster_path = current_film.poster_path
                     var dati = {
+                        number : i + 1,
                         title : title,
                         original_title : original_title,
                         original_language : language,
-                        rating : Math.round(vote) / 2 //arrotondiamo per eccesso
+                        rating : Math.round(vote),
+                        poster_path : poster_path
 
                     }
                     var html = template_function(dati);
@@ -56,6 +60,11 @@ $(document).ready(function() {
         });
     }
 
+
+
+
+
+
 // MILESTONE 2
 //
 //     divido per due per tranformare i voti in un numero da 1 a 5 arrotondando per eccesso
@@ -63,11 +72,19 @@ $(document).ready(function() {
 //     aggiungiamo le bandiere alla stringa Language
 //     nuova chiamata AJAX per la ricerca serie TV
         //
+        $('#search_serie').click(function(){
+            api_search_serie();
+    });
+            var api_search_serie = function() {
+                /*var template_html = $('#template_serie').html();
+                var template_function = Handlebars.compile(template_html);*/
+                var search_serie= $('#search_serie').val();
+                var api_url = 'https://api.themoviedb.org/3';
         $.ajax({
             'url': api_url + '/search/tv',
             'data': {
                 'api_key': '5f9e408b31b5eab1cd8a1f5bf65e5ae3',
-                'query': search_tv,
+                'query': search_serie,
                 'language': 'en-EN'
             },
             'method': 'GET',
@@ -88,26 +105,7 @@ $(document).ready(function() {
                         vote_average : Math.round(vote) / 2
                             // MILESTONE 2 - AGGIUNGO LE STELLINE AL RATING
 
-                                 for(i = 0; i < stelline.length i++) {
-                                    var stelline = dati.vote
-                                    if (stelline[i] == 0) {
-                                        $('.far').show(html); {
-                                    }
-                                    if (stelline[i] == 1 ) {
-                                        $('.fas').show(html) * 1;
-                                    }
-                                    if (stelline[i] == 2 ) {
-                                        $('.fas').show(html) * 2;
-                                    }
-                                    if (stelline[i] == 3 ) {
-                                        $('.fas').show(html) * 3;
-                                    }
-                                    if (stelline[i] == 4  ) {
-                                        $('.fas').show(html) * 4;
-                                    }
-                                    if (stelline[i] == 5 ) {
-                                        $('.fas').show(html) * 5;
-                                    }
+
                     }
                     var html = template_function(dati);
                     $('.container').append(html);
@@ -117,7 +115,7 @@ $(document).ready(function() {
                 alert('error');
             }
         });
-
+}
 
         // BANDIERE API
         // API SPAIN: https://public-us.opendatasoft.com/api/records/1.0/search/?dataset=country-flags&q=spain&facet=country&refine.country=Spain
@@ -125,5 +123,6 @@ $(document).ready(function() {
         // API USA: https://public-us.opendatasoft.com/api/records/1.0/search/?dataset=country-flags&q=usa&facet=country&refine.country=United+States
         // API FRANCE: https://public-us.opendatasoft.com/api/records/1.0/search/?dataset=country-flags&q=france&facet=country&refine.country=France
 
+        //var lingue = original_language.dati;
 
 });
